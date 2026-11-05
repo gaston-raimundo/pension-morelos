@@ -5,4 +5,4 @@
 :HL["/pension-morelos/img/habitacion_doble.jpeg","image"]
 :HL["/pension-morelos/img/galeria_patio.jpeg","image"]
 :HL["/pension-morelos/img/qr_whatsapp.svg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"CWdcexQnKek0aqNCY8eFZ"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"3NlcvSUELEoWdaf39yRg8"}
