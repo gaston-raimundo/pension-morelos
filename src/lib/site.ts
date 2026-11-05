@@ -12,7 +12,7 @@ export const IG_URL = "https://www.instagram.com/pu.morelos/";
 export const ADDRESS = "Morelos 606 esq. Dupuy";
 export const NEIGHBORHOOD = "Barrio San Gerónimo, Corrientes";
 export const HOURS = "Lunes a sábado de 9 a 20 h";
-export const GEO = { lat: -27.46751, lng: -58.788426 };
+export const GEO = { lat: -27.467534, lng: -58.789671 };
 export const MAP_EMBED = `https://www.google.com/maps?q=${GEO.lat},${GEO.lng}&z=16&output=embed`;
 export const MAP_LINK = `https://www.google.com/maps/search/?api=1&query=${GEO.lat},${GEO.lng}`;
 
