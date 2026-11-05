@@ -19,7 +19,7 @@ npm run build      # genera out/
 | Colores y tipografía | `src/app/globals.css` |
 | Fotos de la galería | `public/img/` (mismo nombre de archivo, o cambiar la lista `GALERIA` en `page.tsx`) |
 
-Reglas de contenido: sin precio, descuentos ni promociones; solo se menciona la luz como gasto aparte; solo mayores de 18.
+Reglas de contenido: sin precio, descuentos ni promociones; la luz está incluida; el gas no se menciona; solo mayores de 18.
 
 ## Publicar (GitHub Pages)
 1. Crear el repo público `gaston-raimundo/pension-morelos` y subir el contenido de esta carpeta `web/` como raíz del repo.

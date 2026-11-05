@@ -16,7 +16,7 @@ const NAV = [
 
 const INCLUYE: [IconName, string, string][] = [
   ["wifi", "Wifi", "incluido"],
-  ["agua", "Agua y cable", "incluidos"],
+  ["agua", "Luz, agua y cable", "incluidos"],
   ["cama", "Habitación amoblada", "cama, placard, mesa de estudio y silla"],
   ["ropa", "Ropa de cama", "sábanas, colcha y almohada"],
   ["cocina", "Cocina-comedor", "equipada, con heladeras y TV"],
@@ -34,7 +34,7 @@ const REGLAS: [IconName, string, string][] = [
 
 const FAQ: [string, string][] = [
   ["¿La pensión es mixta?", "Sí, es mixta y solo para estudiantes mayores de 18 años. Las habitaciones compartidas se asignan por género, salvo que un grupo pida compartir."],
-  ["¿Qué incluye y qué se paga aparte?", "Incluye wifi, agua, cable, ropa de cama, la habitación amoblada y la limpieza de los espacios comunes. La luz se divide entre los inquilinos."],
+  ["¿Qué incluye el precio?", "Incluye luz, wifi, agua, cable, ropa de cama, la habitación amoblada y la limpieza de los espacios comunes."],
   ["¿Cuánto cuesta?", "Te pasamos precios y disponibilidad por WhatsApp, según el tipo de habitación que busques."],
   ["¿Cuánto dura el contrato?", "Es por 12 meses y se paga todos los meses, incluidas las vacaciones."],
   ["¿Cuántos baños hay?", "Tres baños, cada uno asignado a una o dos habitaciones."],
@@ -99,7 +99,7 @@ export default function Home() {
             </h1>
             <p className="mt-6 max-w-lg text-lg text-muted">
               Pensión universitaria mixta en Corrientes: habitaciones compartidas e individuales, amobladas,
-              con wifi, agua y cable incluidos.
+              con luz, wifi, agua y cable incluidos.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <WaLink>Consultá disponibilidad</WaLink>
@@ -151,7 +151,6 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-muted">La luz se divide entre los inquilinos.</p>
           </div>
         </section>
 

@@ -11,7 +11,7 @@ const manrope = localFont({
 });
 
 const DESCRIPTION =
-  "Pensión universitaria mixta para estudiantes mayores de 18, a 4 cuadras del Campus UNNE en Corrientes. Habitaciones compartidas e individuales, amobladas, con wifi, agua y cable incluidos.";
+  "Pensión universitaria mixta para estudiantes mayores de 18, a 4 cuadras del Campus UNNE en Corrientes. Habitaciones compartidas e individuales, amobladas, con luz, wifi, agua y cable incluidos.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL + "/"),
@@ -55,7 +55,7 @@ const jsonLd = {
       closes: "20:00",
     },
   ],
-  amenityFeature: ["Wifi", "Agua y cable incluidos", "Habitaciones amobladas", "Lavarropas", "Asador", "Limpieza de espacios comunes"].map(
+  amenityFeature: ["Wifi", "Luz, agua y cable incluidos", "Habitaciones amobladas", "Lavarropas", "Asador", "Limpieza de espacios comunes"].map(
     (name) => ({ "@type": "LocationFeatureSpecification", name, value: true }),
   ),
   sameAs: [IG_URL],
