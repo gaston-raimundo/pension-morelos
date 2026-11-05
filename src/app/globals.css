@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* ── Tokens de marca Pensión Universitaria Morelos (specs/README.md §3) ── */
+@theme inline {
+  --color-ink:   #1F2D3D;
+  --color-blue:  #2F4A66;
+  --color-sand:  #C2A36B;
+  --color-paper: #F6F2EA;
+  --color-line:  #E3DCCD;
+  --color-muted: #5A6675;
+
+  --font-sans: var(--font-manrope);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Las anclas no quedan tapadas por la barra fija */
+section[id] { scroll-margin-top: 5rem; }
