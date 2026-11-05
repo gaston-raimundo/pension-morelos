@@ -117,7 +117,7 @@ export default function Home() {
             <div className="grid gap-6 md:grid-cols-2">
               {[
                 { t: "Habitación compartida", s: "de 2 o 3 camas", d: "Alquilás tu cama en una habitación compartida, ideal para venir con amigos o conocer gente nueva. Se asignan por género, salvo que un grupo pida compartir." },
-                { t: "Habitación individual", s: "habitaciones de 2 camas para una sola persona", d: "Toda la habitación para vos: más espacio y privacidad, con los mismos espacios comunes." },
+                { t: "Habitación individual", s: "una sola cama, solo para vos", d: "La habitación es solo tuya, con una cama: más espacio y privacidad, con los mismos espacios comunes." },
               ].map((h) => (
                 <article key={h.t} className="rounded-3xl border border-line bg-paper p-8">
                   <Icon name="cama" className="h-10 w-10 text-blue" />
