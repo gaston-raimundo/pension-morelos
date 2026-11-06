@@ -1,4 +1,4 @@
 User-Agent: *
 Allow: /
 
-Sitemap: https://gaston-raimundo.github.io/pension-morelos/sitemap.xml
+Sitemap: https://pensionmorelos.com.ar/sitemap.xml
