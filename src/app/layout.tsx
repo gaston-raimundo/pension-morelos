@@ -83,6 +83,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+        {/* Cloudflare Web Analytics: estadísticas de visitas sin cookies */}
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "eccce6d7dba74b1291ef3ce920f892e7"}' />
         {children}
       </body>
     </html>
