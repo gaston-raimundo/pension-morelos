@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { ADDRESS, GEO, IG_URL, PHONE_INTL, SITE_URL } from "@/lib/site";
+import { ADDRESS, FAQ, FB_URL, GEO, IG_URL, MAP_LINK, PHONE_INTL, SITE_URL } from "@/lib/site";
 
 const manrope = localFont({
   src: "../fonts/Manrope-VariableFont_wght.ttf",
@@ -11,23 +11,30 @@ const manrope = localFont({
 });
 
 const DESCRIPTION =
-  "Pensión universitaria mixta para estudiantes mayores de 18, a 4 cuadras del Campus UNNE en Corrientes. Habitaciones compartidas e individuales, amobladas, con luz, wifi, agua y cable incluidos.";
+  "Pensión para estudiantes a 4 cuadras del Campus UNNE, en Corrientes. Habitaciones compartidas e individuales amobladas, con luz, wifi, agua y cable incluidos.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL + "/"),
   title: {
-    default: "Pensión Universitaria Morelos · A 4 cuadras del Campus UNNE · Corrientes",
+    default: "Pensión universitaria en Corrientes a 4 cuadras de la UNNE · Pensión Morelos",
     template: "%s · Pensión Universitaria Morelos",
   },
   description: DESCRIPTION,
   alternates: { canonical: "./" },
+  applicationName: "Pensión Universitaria Morelos",
+  keywords: [
+    "pensión universitaria Corrientes", "pensión para estudiantes Corrientes", "alojamiento estudiantes UNNE",
+    "pensión cerca de la UNNE", "habitaciones para estudiantes Corrientes", "pensión San Gerónimo Corrientes",
+  ],
+  formatDetection: { telephone: true },
   openGraph: {
     siteName: "Pensión Universitaria Morelos",
     title: "Pensión Universitaria Morelos · Estudiá cerca. Viví tranquilo.",
     description: DESCRIPTION,
     locale: "es_AR",
     type: "website",
-    images: [{ url: "og-image.png", width: 1080, height: 1080, alt: "Pensión Universitaria Morelos — a 4 cuadras del Campus UNNE" }],
+    url: "./",
+    images: [{ url: "og-image.jpg", width: 1200, height: 630, alt: "Pensión Universitaria Morelos — a 4 cuadras del Campus UNNE" }],
   },
 };
 
@@ -37,7 +44,10 @@ const jsonLd = {
   name: "Pensión Universitaria Morelos",
   description: DESCRIPTION,
   url: SITE_URL,
-  image: `${SITE_URL}/og-image.png`,
+  image: [`${SITE_URL}/og-image.jpg`, `${SITE_URL}/img/habitacion_individual.jpeg`, `${SITE_URL}/img/habitacion_doble.jpeg`, `${SITE_URL}/img/galeria_patio.jpeg`],
+  logo: `${SITE_URL}/icon-512.png`,
+  hasMap: MAP_LINK,
+  areaServed: "Corrientes, Argentina",
   telephone: PHONE_INTL,
   address: {
     "@type": "PostalAddress",
@@ -58,7 +68,13 @@ const jsonLd = {
   amenityFeature: ["Wifi", "Luz, agua y cable incluidos", "Habitaciones amobladas", "Lavarropas", "Asador", "Limpieza de espacios comunes"].map(
     (name) => ({ "@type": "LocationFeatureSpecification", name, value: true }),
   ),
-  sameAs: [IG_URL],
+  sameAs: [IG_URL, FB_URL],
+};
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -66,6 +82,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="es-AR" className={manrope.variable}>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
         {children}
       </body>
     </html>

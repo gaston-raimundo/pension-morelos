@@ -2,8 +2,26 @@
 import Icon, { type IconName } from "@/components/Icon";
 import WhatsAppButton, { WhatsAppGlyph } from "@/components/WhatsAppButton";
 import {
-  ADDRESS, HOURS, IG_HANDLE, IG_URL, MAP_EMBED, MAP_LINK, NEIGHBORHOOD, PHONE_DISPLAY, WA_URL, asset,
+  ADDRESS, FAQ, HOURS, IG_HANDLE, IG_URL, MAP_EMBED, MAP_LINK, NEIGHBORHOOD, PHONE_DISPLAY, WA_URL, asset,
 } from "@/lib/site";
+
+/** Medidas reales de las fotos (WebP generadas a 1200 px de ancho) para que la página no "salte" al cargar. */
+const FOTOS = {
+  habitacion_individual: [1200, 1486],
+  habitacion_doble: [1200, 900],
+  galeria_patio: [1199, 1600],
+} as const;
+
+function Foto({ name, alt, className, priority = false }: { name: keyof typeof FOTOS; alt: string; className: string; priority?: boolean }) {
+  const [width, height] = FOTOS[name];
+  return (
+    <picture>
+      <source srcSet={asset(`/img/${name}.webp`)} type="image/webp" />
+      <img src={asset(`/img/${name}.jpeg`)} alt={alt} width={width} height={height} className={className}
+        loading={priority ? "eager" : "lazy"} decoding="async" fetchPriority={priority ? "high" : "auto"} />
+    </picture>
+  );
+}
 
 const NAV = [
   ["Habitaciones", "#habitaciones"],
@@ -32,19 +50,10 @@ const REGLAS: [IconName, string, string][] = [
   ["nofumar", "No se fuma adentro", "solo en el patio · no se permiten fiestas ni mascotas"],
 ];
 
-const FAQ: [string, string][] = [
-  ["¿La pensión es mixta?", "Sí, es mixta y solo para estudiantes mayores de 18 años. Las habitaciones compartidas se asignan por género, salvo que un grupo pida compartir."],
-  ["¿Qué incluye el precio?", "Incluye luz, wifi, agua, cable, ropa de cama, la habitación amoblada y la limpieza de los espacios comunes."],
-  ["¿Cuánto cuesta?", "Te pasamos precios y disponibilidad por WhatsApp, según el tipo de habitación que busques."],
-  ["¿Cuánto dura el contrato?", "Es por 12 meses y se paga todos los meses, incluidas las vacaciones."],
-  ["¿Cuántos baños hay?", "Tres baños, cada uno asignado a una o dos habitaciones."],
-  ["¿Puedo conocer la casa antes?", "Sí. Coordinamos una visita por WhatsApp; si sos de otra ciudad, también podemos hacer una videollamada."],
-];
-
 const GALERIA = [
-  ["/img/habitacion_individual.jpeg", "Habitación individual con escritorio y luz natural"],
-  ["/img/habitacion_doble.jpeg", "Habitación compartida de dos camas"],
-  ["/img/galeria_patio.jpeg", "Galería con lavadero"],
+  ["habitacion_individual", "Habitación individual de la pensión con escritorio y luz natural"],
+  ["habitacion_doble", "Habitación compartida de dos camas en la pensión universitaria"],
+  ["galeria_patio", "Galería con lavadero y patio de la pensión"],
 ] as const;
 
 function WaLink({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -73,7 +82,7 @@ export default function Home() {
       <header className="fixed inset-x-0 top-0 z-40 border-b border-line bg-paper/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
           <a href="#inicio" aria-label="Pensión Universitaria Morelos, inicio">
-            <img src={asset("/img/logo_horizontal_positivo.svg")} alt="Pensión Universitaria Morelos" className="h-9 w-auto" />
+            <img src={asset("/img/logo_horizontal_positivo.svg")} alt="Pensión Universitaria Morelos" width={180} height={36} className="h-9 w-auto" />
           </a>
           <nav className="hidden gap-6 text-sm font-semibold text-muted lg:flex">
             {NAV.map(([label, href]) => (
@@ -94,19 +103,24 @@ export default function Home() {
             <p className="inline-block rounded-full bg-ink px-4 py-1.5 text-sm font-bold text-paper">
               A <span className="text-sand">4 cuadras</span> del Campus UNNE
             </p>
-            <h1 className="mt-6 text-5xl font-extrabold leading-[1.02] sm:text-6xl">
-              Estudiá cerca.<br /><span className="text-blue">Viví tranquilo.</span>
+            <h1 className="mt-6">
+              <span className="block text-base font-bold uppercase tracking-[0.14em] text-blue sm:text-lg">
+                Pensión universitaria en Corrientes
+              </span>
+              <span className="mt-3 block text-5xl font-extrabold leading-[1.02] sm:text-6xl">
+                Estudiá cerca.<br /><span className="text-blue">Viví tranquilo.</span>
+              </span>
             </h1>
             <p className="mt-6 max-w-lg text-lg text-muted">
-              Pensión universitaria mixta en Corrientes: habitaciones compartidas e individuales, amobladas,
-              con luz, wifi, agua y cable incluidos.
+              Pensión mixta para estudiantes de la UNNE, en el barrio San Gerónimo: habitaciones compartidas e
+              individuales, amobladas, con luz, wifi, agua y cable incluidos.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <WaLink>Consultá disponibilidad</WaLink>
               <a href="#habitaciones" className="font-bold text-blue underline-offset-4 hover:underline">Ver habitaciones</a>
             </div>
           </div>
-          <img src={asset("/img/habitacion_individual.jpeg")} alt="Habitación individual de la pensión, con escritorio, cama y ventana"
+          <Foto name="habitacion_individual" priority alt="Habitación individual de la pensión universitaria, con escritorio, cama y ventana"
             className="aspect-[4/3] w-full rounded-3xl object-cover shadow-sm" />
         </section>
 
@@ -160,7 +174,7 @@ export default function Home() {
             <SectionTitle eyebrow="La casa">Cinco habitaciones, tres baños y patio</SectionTitle>
             <div className="grid gap-4 md:grid-cols-3">
               {GALERIA.map(([src, alt]) => (
-                <img key={src} src={asset(src)} alt={alt} className="aspect-[4/3] w-full rounded-2xl object-cover" />
+                <Foto key={src} name={src} alt={alt} className="aspect-[4/3] w-full rounded-2xl object-cover" />
               ))}
             </div>
             <ul className="mt-8 grid gap-3 text-muted sm:grid-cols-2">
@@ -186,6 +200,11 @@ export default function Home() {
                 <span><b>{ADDRESS}</b><br /><span className="text-muted">{NEIGHBORHOOD}</span></span>
               </p>
               <p className="mt-4 text-muted">Vas caminando a cursar y volvés a almorzar a casa.</p>
+              <p className="mt-4 text-muted">
+                Una pensión para estudiantes en el barrio San Gerónimo de Corrientes, a 4 cuadras del Campus de la UNNE
+                sobre la Av. Libertad. Si venís del interior o de otra provincia a estudiar en Corrientes, llegás a una
+                habitación lista, con los servicios incluidos y la facultad a pocos minutos a pie.
+              </p>
               <a href={MAP_LINK} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block font-bold text-blue underline-offset-4 hover:underline">
                 Abrir en Google Maps
               </a>
@@ -278,7 +297,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="hidden rounded-2xl bg-white p-3 md:block">
-                <img src={asset("/img/qr_whatsapp.svg")} alt="Código QR para escribir por WhatsApp" className="h-36 w-36" />
+                <img src={asset("/img/qr_whatsapp.svg")} alt="Código QR para escribir por WhatsApp" width={144} height={144} loading="lazy" className="h-36 w-36" />
               </div>
             </div>
           </div>
@@ -287,7 +306,7 @@ export default function Home() {
 
       <footer className="border-t border-line py-10">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 text-sm text-muted md:flex-row md:items-center md:justify-between">
-          <img src={asset("/img/logo_horizontal_positivo.svg")} alt="Pensión Universitaria Morelos" className="h-10 w-auto self-start" />
+          <img src={asset("/img/logo_horizontal_positivo.svg")} alt="Pensión Universitaria Morelos" width={200} height={40} loading="lazy" className="h-10 w-auto self-start" />
           <div className="space-y-1">
             <p className="flex items-center gap-2"><Icon name="pin" className="h-4 w-4" />{ADDRESS} · {NEIGHBORHOOD}</p>
             <p className="flex items-center gap-2"><Icon name="reloj" className="h-4 w-4" />{HOURS}</p>
