@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { ADDRESS, FAQ, FB_URL, GEO, IG_URL, MAP_LINK, PHONE_INTL, SITE_URL } from "@/lib/site";
+import { ADDRESS, EMAIL, FAQ, FB_URL, GEO, IG_URL, MAP_LINK, PHONE_INTL, SITE_URL } from "@/lib/site";
 
 const manrope = localFont({
   src: "../fonts/Manrope-VariableFont_wght.ttf",
@@ -49,6 +49,7 @@ const jsonLd = {
   hasMap: MAP_LINK,
   areaServed: "Corrientes, Argentina",
   telephone: PHONE_INTL,
+  email: EMAIL,
   address: {
     "@type": "PostalAddress",
     streetAddress: ADDRESS,

@@ -2,7 +2,7 @@
 import Icon, { type IconName } from "@/components/Icon";
 import WhatsAppButton, { WhatsAppGlyph } from "@/components/WhatsAppButton";
 import {
-  ADDRESS, FAQ, HOURS, IG_HANDLE, IG_URL, MAP_EMBED, MAP_LINK, NEIGHBORHOOD, PHONE_DISPLAY, WA_URL, asset,
+  ADDRESS, EMAIL, FAQ, HOURS, IG_HANDLE, IG_URL, MAP_EMBED, MAP_LINK, NEIGHBORHOOD, PHONE_DISPLAY, WA_URL, asset,
 } from "@/lib/site";
 
 /** Medidas reales de las fotos (WebP generadas a 1200 px de ancho) para que la página no "salte" al cargar. */
@@ -314,6 +314,7 @@ export default function Home() {
             <p className="flex items-center gap-2"><Icon name="pin" className="h-4 w-4" />{ADDRESS} · {NEIGHBORHOOD}</p>
             <p className="flex items-center gap-2"><Icon name="reloj" className="h-4 w-4" />{HOURS}</p>
             <p className="flex items-center gap-2"><Icon name="chat" className="h-4 w-4" />WhatsApp {PHONE_DISPLAY} · Instagram {IG_HANDLE}</p>
+            <p className="flex items-center gap-2"><Icon name="chat" className="h-4 w-4" /><a href={`mailto:${EMAIL}`} className="hover:text-ink">{EMAIL}</a></p>
           </div>
         </div>
       </footer>

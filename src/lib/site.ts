@@ -7,6 +7,7 @@ export const PHONE_DISPLAY = "3794 377379";
 export const PHONE_INTL = "+54 9 379 437-7379";
 export const WA_URL =
   "https://wa.me/5493794377379?text=Hola!%20Quiero%20info%20de%20la%20Pensi%C3%B3n%20Universitaria%20Morelos";
+export const EMAIL = "contacto@pensionmorelos.com.ar";
 export const IG_HANDLE = "@pu.morelos";
 export const IG_URL = "https://www.instagram.com/pu.morelos/";
 export const FB_URL = "https://www.facebook.com/profile.php?id=61596325046160";
