@@ -12,11 +12,14 @@ const FOTOS = {
   galeria_patio: [1199, 1600],
 } as const;
 
-function Foto({ name, alt, className, priority = false }: { name: keyof typeof FOTOS; alt: string; className: string; priority?: boolean }) {
+function Foto({ name, alt, className, sizes, priority = false }: {
+  name: keyof typeof FOTOS; alt: string; className: string; sizes: string; priority?: boolean;
+}) {
   const [width, height] = FOTOS[name];
   return (
     <picture>
-      <source srcSet={asset(`/img/${name}.webp`)} type="image/webp" />
+      <source type="image/webp" sizes={sizes}
+        srcSet={`${asset(`/img/${name}-640.webp`)} 640w, ${asset(`/img/${name}.webp`)} 1200w`} />
       <img src={asset(`/img/${name}.jpeg`)} alt={alt} width={width} height={height} className={className}
         loading={priority ? "eager" : "lazy"} decoding="async" fetchPriority={priority ? "high" : "auto"} />
     </picture>
@@ -120,7 +123,7 @@ export default function Home() {
               <a href="#habitaciones" className="font-bold text-blue underline-offset-4 hover:underline">Ver habitaciones</a>
             </div>
           </div>
-          <Foto name="habitacion_individual" priority alt="Habitación individual de la pensión universitaria, con escritorio, cama y ventana"
+          <Foto name="habitacion_individual" priority sizes="(min-width: 768px) 50vw, 100vw" alt="Habitación individual de la pensión universitaria, con escritorio, cama y ventana"
             className="aspect-[4/3] w-full rounded-3xl object-cover shadow-sm" />
         </section>
 
@@ -136,7 +139,7 @@ export default function Home() {
                 <article key={h.t} className="rounded-3xl border border-line bg-paper p-8">
                   <Icon name="cama" className="h-10 w-10 text-blue" />
                   <h3 className="mt-5 text-2xl font-extrabold">{h.t}</h3>
-                  <p className="text-sm font-bold uppercase tracking-wider text-sand">{h.s}</p>
+                  <p className="text-sm font-bold uppercase tracking-wider text-blue">{h.s}</p>
                   <p className="mt-4 text-muted">{h.d}</p>
                 </article>
               ))}
@@ -174,7 +177,7 @@ export default function Home() {
             <SectionTitle eyebrow="La casa">Cinco habitaciones, tres baños y patio</SectionTitle>
             <div className="grid gap-4 md:grid-cols-3">
               {GALERIA.map(([src, alt]) => (
-                <Foto key={src} name={src} alt={alt} className="aspect-[4/3] w-full rounded-2xl object-cover" />
+                <Foto key={src} name={src} alt={alt} sizes="(min-width: 768px) 33vw, 100vw" className="aspect-[4/3] w-full rounded-2xl object-cover" />
               ))}
             </div>
             <ul className="mt-8 grid gap-3 text-muted sm:grid-cols-2">
