@@ -1,8 +1,4 @@
-:HL["/_next/static/chunks/0u58c6-.fmh9i.css","style"]
+:HL["/_next/static/chunks/0p6q3195hc.4y.css","style"]
 :HL["/_next/static/media/Manrope_VariableFont_wght-s.p.13jwgqzl615ix.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
 :HL["/img/logo_horizontal_positivo.svg","image"]
-:HL["/img/habitacion_individual.jpeg","image"]
-:HL["/img/habitacion_doble.jpeg","image"]
-:HL["/img/galeria_patio.jpeg","image"]
-:HL["/img/qr_whatsapp.svg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"ib86WO2T3Ut-lePNQaOF0"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"1_MqvBzAb2C-TOOhhv9Sm"}
