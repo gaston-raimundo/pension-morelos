@@ -1,7 +1,7 @@
 // Datos del negocio. Fuente de verdad: specs/README.md §2.
 // Reglas del dueño: sin precio, descuentos ni promociones; la luz está incluida en el precio; el gas no se menciona.
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://gaston-raimundo.github.io/pension-morelos";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pensionmorelos.com.ar";
 
 export const PHONE_DISPLAY = "3794 377379";
 export const PHONE_INTL = "+54 9 379 437-7379";

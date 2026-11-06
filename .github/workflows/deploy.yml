@@ -24,10 +24,8 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          # Mientras no haya dominio propio el sitio vive en /pension-morelos.
-          # Con dominio: borrar estas dos líneas y agregar public/CNAME.
-          BASE_PATH: /pension-morelos
-          NEXT_PUBLIC_SITE_URL: https://gaston-raimundo.github.io/pension-morelos
+          # Dominio propio (public/CNAME): el sitio vive en la raíz.
+          NEXT_PUBLIC_SITE_URL: https://pensionmorelos.com.ar
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3

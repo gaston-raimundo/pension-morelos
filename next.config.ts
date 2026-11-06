@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
-// Mientras el sitio viva en gaston-raimundo.github.io/pension-morelos, el build de CI
-// define BASE_PATH="/pension-morelos". Con dominio propio se deja vacío (y se agrega public/CNAME).
+// Con dominio propio (pensionmorelos.com.ar, public/CNAME) el sitio vive en la raíz: BASE_PATH vacío.
+// Si alguna vez vuelve a una subcarpeta de github.io, definir BASE_PATH="/pension-morelos" en el build.
 const basePath = process.env.BASE_PATH ?? "";
 
 const nextConfig: NextConfig = {

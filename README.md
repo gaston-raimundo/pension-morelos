@@ -27,7 +27,7 @@ Reglas de contenido: sin precio, descuentos ni promociones; la luz está incluid
 3. En GitHub → Settings → Pages: origen = rama `gh-pages`.
 4. URL: `https://gaston-raimundo.github.io/pension-morelos/`
 
-## Dominio propio (cuando se registre)
-1. Crear `public/CNAME` con el dominio (ej. `www.pensionmorelos.com.ar`).
-2. En `deploy.yml`, borrar `BASE_PATH` y cambiar `NEXT_PUBLIC_SITE_URL` por el dominio.
-3. En el DNS del dominio: registro CNAME `www` → `gaston-raimundo.github.io`.
+## Dominio propio ✅ pensionmorelos.com.ar (2026-11-06)
+- `public/CNAME` = `pensionmorelos.com.ar`; `deploy.yml` sin `BASE_PATH` y con `NEXT_PUBLIC_SITE_URL=https://pensionmorelos.com.ar`.
+- DNS en Cloudflare (cuenta de biinsights), solo DNS (nube gris): 4 registros A `@` → 185.199.108-111.153 y CNAME `www` → `gaston-raimundo.github.io`.
+- Nameservers a cargar en NIC Argentina: `dimitris.ns.cloudflare.com` y `sandy.ns.cloudflare.com`.
